@@ -9,7 +9,7 @@
 
         <form class ='container' action='create' method="POST">
             <input name='name' class='form-control'/>
-            <input status='status' class='form-control'/>
+            <input name='status' class='form-control'/>
             <button class='btn btn-primary'>Salvar</button>
         </form>
 
@@ -19,6 +19,7 @@
             <tr>
                 <td>{{task['name']}}</td>
                 <td>{{task['status']}}</td>
+                <td style="text-align:right"><button> </button></td>
             </tr>
             {% endfor %}
 
