@@ -4,9 +4,9 @@ from  flask import Flask, render_template, request
 app = Flask(__name__)
 
 tasks = [
-    {'name':'Estudar', 'status': 'lido'},
-    {'name': 'Dormir', 'status': 'lido'},
-    {'name': 'comer', 'status': 'não lido'}
+    {'name':'A culpa é das Estrelas', 'status': 'não lido'},
+    {'name': 'Sherlock Holmes', 'status': 'lido'},
+    {'name': 'Diario de um banana', 'status': 'não lido'}
 ]
 
 @app.route('/')
