@@ -1,6 +1,8 @@
-#Importando a biblioteca
+#Importando as bibliotecas
 from  flask import Flask, render_template, request
-import csv 
+import pandas
+import csv
+import uuid 
 
 app = Flask(__name__)
 
