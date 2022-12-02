@@ -1,6 +1,6 @@
 #Importando as bibliotecas
 from  flask import Flask, render_template, request
-import pandas
+import pandas as pd
 import csv
 from uuid import uuid4
 
