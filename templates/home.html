@@ -1,33 +1,53 @@
-<html>
-    <head>
-        <!-- CSS only -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
 
-        <br/>
+<head>
+    <!-- html stuff -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap stuff -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- css stuff -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+    <title>Inicio</title>
+</head>
 
-        <form class ='container' action='create' method="POST">
-            <input name='name' class='form-control'/>
-            <input name='status' class='form-control'/>
-            <button class='btn btn-primary'>Salvar</button>
-        </form>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="https://mpng.subpng.com/20180328/tse/kisspng-money-bag-computer-icons-coin-tax-market-5abbb0febf56f2.7630683415222499827837.jpg" alt="" width="40" height="40">
+          </a>
 
+        </div>
+      </nav>
+
+    <div class="container-fluid">
         <table class="table table-hover">
             <tr>
-                <td><font size=+2>Livro</font></td>
-                <td><font size=+2>Status</font></td>
+                <th>name</th>
+                <th>status</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
             </tr>
 
-            {% for task in tasks: %}
+            {% for livro in livros %}
             <tr>
-                <td>{{task['name']}}</td>
-                <td>{{task['status']}}</td>
-                <td style="text-align:right"><button class='btn btn-primary'>Alterar</button></td>
-                <td style="text-align:right"><button class='btn btn-primary'>Deletar</button></td>
+
+                <td>{{livro['name']}}</td>
+                <td>{{livro['status']}}</td>
+                <td><a href="/edit/{{livro['id']}}/{{livro['name']}}/{{livro['status']}}" class="btn btn-sm btn-outline-success">Editar</a></td>
+                <td><a href="/deletar/{{livro['id']}}" class="btn btn-sm btn-danger">Apagar</a></td>
             </tr>
             {% endfor %}
 
         </table>
-    </body>
+ 
+        <a href="/create" class="btn btn-primary">Adicionar</a>
+
+    </div>
+
+</body>
+
 </html>
