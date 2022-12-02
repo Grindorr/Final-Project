@@ -84,14 +84,19 @@ def salvarup():
     #ira criar um novo dataframe usando as novas variaveis
     novo_dataframe = pd.DataFrame({'Id': [id], 'Name': [name], 'Status': [status]})
 
+    #ira setar o index para a coluna id
+    data = data.set_index('id')
+    novo_dataframe = novo_dataframe.set_index('id')
 
-@app.route('/create', methods=['POST'])
-def create():
-    name = request.form['name']
-    status = request.form['status']
-    task = {'name': name, 'status': status}
-    tasks.append(task)
-    return render_template('home.html', tasks=tasks)
+    #ira atualizar os dados do antigo data frame com o novo
+    data.update(novo_dataframe)
 
+    #salvando o  arquivo
+    data.to_csv('livros.csv')
+
+    #ira  direcionar para '/'
+    with open('livros.csv', 'rt') as file_in:
+        livros = csv.DictReader(file_in)
+        return render_template('home.html', livros=livros)
 
 app.run(debug=True)
