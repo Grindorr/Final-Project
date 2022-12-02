@@ -6,16 +6,18 @@ import uuid
 
 app = Flask(__name__)
 
-tasks = [
-    {'name':'A culpa é das Estrelas', 'status': 'não lido'},
-    {'name': 'Sherlock Holmes', 'status': 'lido'},
-    {'name': 'Diario de um banana', 'status': 'não lido'}
-]
 
+#le os livros.csv e manda para home.html
 @app.route('/')
 def home():
-    # templates/home.html
-    return render_template('home.html', tasks=tasks)
+    with open('livros.csv', 'rt') as file_in:
+        livros = csv.DictReader(file_in)
+        return render_template('home.html', livros=livros)
+
+#Não lembro como funciona
+@app.route('/create')
+def create():
+    return render_template('create.html')
 
 @app.route('/create', methods=['POST'])
 def create():
