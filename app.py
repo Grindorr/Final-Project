@@ -2,7 +2,7 @@
 from  flask import Flask, render_template, request
 import pandas
 import csv
-import uuid 
+from uuid import uuid4
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def create():
     return render_template('create.html')
 
 #salva as as variaveis em uma nova row no arquivo.csv
-@app.route('salvar', methods=['POST'])
+@app.route('/salvar', methods=['POST'])
 def salvar():
 
     #pega as variaveis do forms
@@ -38,7 +38,7 @@ def salvar():
     #manda para "/"
     with open('livros.csv', 'rt') as file_in:
         livros = csv.DictReader(file_in)
-        return render_template('home.thml', livros=livros)
+        return render_template('home.html', livros=livros)
 
 
 #ira deletar rows de acordo com id gerado acima com a biblioteca uuid
