@@ -15,7 +15,7 @@ def home():
         livros = csv.DictReader(file_in)
         return render_template('home.html', livros=livros)
 
-#Não lembro como funciona
+#Função que ira jogar usuario para a pagina de criação
 @app.route('/create')
 def create():
     return render_template('create.html')
@@ -43,7 +43,7 @@ def salvar():
 
 
 #ira deletar rows de acordo com id gerado acima com a biblioteca uuid
-app.route('/deletar/<id>')
+@app.route('/deletar/<id>')
 def deletar(id):
 
     #usa o pandas para abrir o arquivo csv
