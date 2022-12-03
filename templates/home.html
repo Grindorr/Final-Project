@@ -17,7 +17,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="https://mpng.subpng.com/20180328/tse/kisspng-money-bag-computer-icons-coin-tax-market-5abbb0febf56f2.7630683415222499827837.jpg" alt="" width="40" height="40">
+
           </a>
 
         </div>
@@ -37,8 +37,8 @@
 
                 <td>{{livro['name']}}</td>
                 <td>{{livro['status']}}</td>
-                <td><a href="/edit/{{livro['id']}}/{{livro['name']}}/{{livro['status']}}" class="btn btn-sm btn-outline-success">Editar</a></td>
-                <td><a href="/deletar/{{livro['id']}}" class="btn btn-sm btn-danger">Apagar</a></td>
+                <td><a href="/edit/{{livro['Id']}}/{{livro['name']}}/{{livro['status']}}" class="btn btn-sm btn-outline-success">Editar</a></td>
+                <td><a href="/deletar/{{livro['Id']}}" class="btn btn-sm btn-danger">Apagar</a></td>
             </tr>
             {% endfor %}
 

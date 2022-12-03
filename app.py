@@ -48,7 +48,7 @@ def deletar(id):
     #usa o pandas para abrir o arquivo csv
     data = pd.read_csv('livros.csv')
     #seta o valor do index para a coluna 'id'
-    data = data.set_index('id')
+    data = data.set_index('Id')
 
     #joga toda row que tiver a mesma variavel "id" na coluna index
     data.drop(id, axis='index', inplace=True)
