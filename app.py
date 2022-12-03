@@ -1,3 +1,4 @@
+#Ao iniciar o teste digitar no terminal: pip install -r requirements.txt 
 #Importando as bibliotecas
 from  flask import Flask, render_template, request
 import pandas as pd
