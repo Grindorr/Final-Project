@@ -82,7 +82,7 @@ def salvarup():
     data = pd.read_csv('livros.csv')
 
     #ira criar um novo dataframe usando as novas variaveis
-    novo_dataframe = pd.DataFrame({'Id': [id], 'Name': [name], 'Status': [status]})
+    novo_dataframe = pd.DataFrame({'id': [id], 'name': [name], 'status': [status]})
 
     #ira setar o index para a coluna id
     data = data.set_index('id')
